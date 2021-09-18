@@ -10,7 +10,7 @@ class TelaCadastro extends StatelessWidget {
         title: const Text("Cadastro de usuario"),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.delete),
+            icon: const Icon(Icons.delete_forever),
             onPressed: () {},
           )
         ],
