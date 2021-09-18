@@ -1,7 +1,7 @@
 import 'package:app_cadastro/screens/tela_inicial.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async{
   runApp(const MyApp());
 }
 
