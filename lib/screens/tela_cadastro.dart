@@ -1,7 +1,15 @@
+
+import 'package:app_cadastro/database/database.dart';
+import 'package:app_cadastro/model/usuario.dart';
 import 'package:flutter/material.dart';
 
 class TelaCadastro extends StatelessWidget {
-  const TelaCadastro({Key? key}) : super(key: key);
+  TelaCadastro({Key? key, required this.bd}) : super(key: key);
+  final BancoDeDadosApp bd;
+
+  final _nomeContorller = TextEditingController(text: '');
+  final _numeroContorller = TextEditingController(text: '');  
+  final _enderecoContorller = TextEditingController(text: '');    
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +25,20 @@ class TelaCadastro extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          _Form(),
+          _form(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          _sendForm();
+          Navigator.pop(context,true);
+        },
         child: const Icon(Icons.save),
       ),
     );
   }
 
-  Widget _Form() {
+  Widget _form() {
     return Expanded(
       flex: 1,
       child: Container(
@@ -35,16 +46,19 @@ class TelaCadastro extends StatelessWidget {
         child: Column(
           children: <Widget>[
             TextFormField(
+              controller: _nomeContorller,
               decoration: const InputDecoration(hintText: 'Nome:'),
               maxLength: 40,
             ),
             TextFormField(
+              controller: _numeroContorller,
               decoration:
                   const InputDecoration(hintText: 'Número para contato:'),
               keyboardType: TextInputType.phone,
               maxLength: 15,
             ),
             TextFormField(
+              controller: _enderecoContorller,
               decoration:
                   const InputDecoration(hintText: 'Escreva o endereço:'),
               maxLength: 40,
@@ -55,5 +69,17 @@ class TelaCadastro extends StatelessWidget {
     );
   }
 
-  _sendForm() {}
+  _sendForm() {
+    if(_nomeContorller.text.isNotEmpty && _numeroContorller.text.isNotEmpty
+    && _enderecoContorller.text.isNotEmpty){
+      bd.usuarioRepositoryDAO.insertItem( Usuario(
+        nome: _nomeContorller.text,
+        numero: _numeroContorller.text,
+        endereco: _enderecoContorller.text,
+        created: DateTime.now().toUtc().toString()
+      ));
+      
+    }
+
+  }
 }

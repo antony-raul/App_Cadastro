@@ -1,12 +1,17 @@
+import 'package:app_cadastro/database/database.dart';
 import 'package:app_cadastro/screens/tela_inicial.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async{
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp(
+    bd: await $FloorBancoDeDadosApp.databaseBuilder('app_database_user.db').build(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key, required this.bd}) : super(key: key);
+  final BancoDeDadosApp bd;
 
   // This widget is the root of your application.
   @override
@@ -17,7 +22,7 @@ class MyApp extends StatelessWidget {
         
         primarySwatch: Colors.deepOrange,
       ),
-      home: const TelaInicial(),
+      home: TelaInicial(bd:bd),
     );
   }
 }
