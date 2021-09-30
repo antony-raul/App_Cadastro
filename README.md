@@ -1,16 +1,22 @@
-# app_cadastro
+# App_Cadastro
 
-A new Flutter project.
+#### O objetivo deste trabalho consiste no desenvolvimento de um aplicativo para cadastrar pessoas, onde a aplicação contém um formulário com: Nome, número de contato e endereço a serem preenchidos.</br> Após todos os campos serem preenchidos pelo usuário e o mesmo clicar no ícone de salvar os dados na plataforma, a aplicação mostrará todas as pessoas já cadastradas na tela inicial do app. 
 
-## Getting Started
+## Requisitos
 
-This project is a starting point for a Flutter application.
+  - SDK Flutter
+  - SDK do Android
+  - Possuir um dispositivo Android ou iOS para testar
 
-A few resources to get you started if this is your first Flutter project:
+ ## Iniciar a aplicação
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+ ###### abra um terminal de comandos e entre na pasta raiz do projeto e digite o seguinte comando:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ 
+ ```
+ flutter run
+ ```
+ ## Equipe
+ 
+ - Antony Raul (https://github.com/antony-raul)
+ - Maria Beatriz (https://github.com/BeatrizSI)
